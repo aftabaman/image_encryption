@@ -1,0 +1,171 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+	box-sizing:border-box;
+	margin:0;
+	padding:0;
+	#background-color: #102433;
+
+}
+
+
+
+body{
+	height:100%;
+
+  display: grid;
+  place-items: center;
+  text-align:center;
+  justify-content: center;
+
+  #background: #5256ad;
+}
+.logo{
+	cursor: pointer;
+	font-size:25px;
+	color:#9658fe;
+}
+
+.nav_links{
+
+	list-style: none;
+
+}
+
+.nav_links li{
+	display: inline-block;
+	padding: 30px 400px;
+
+}
+
+
+.nav_links li a button{
+	padding: 9px 25px;
+	background-color: #9658fe;
+	border:none;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	color:#fff;
+}
+
+.nav_links li a button:hover{
+	background-color: #9658fe;
+}
+
+.col{
+  float: left;
+  width: 50%;
+  padding: 10px;
+   /* Should be removed. Only for demonstration */
+}
+
+.containner{
+
+	height: 350px;
+	width: 600px;
+
+}
+
+.container .wrapper{
+
+	position: relative;
+	height: 300px;
+	width: 400px;
+
+	border:2px dashed #c2cdda;
+	background: #fff;
+	border-radius:10px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+
+}
+.wrapper.active{
+	border: none;
+
+}
+
+
+.wrapper .image{
+
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+
+.wrapper .image img{
+	height:100%;
+	width:100%;
+
+	object-fit:cover;
+}
+
+.wrapper .icon{
+
+	font-size:100px;
+	color:#9658fe;
+
+}
+
+.wrapper .text{
+
+	font-size:20px;
+	font-weight: 500;
+	color:#9658fe;
+
+}
+
+.wrapper #cancel-btn{
+
+	position:absolute;
+	right:15px;
+	top: 15px;
+	font-size: 20px;
+
+	cursor: pointer;
+	color:#9658fe;
+	display:none;
+
+}
+
+.wrapper.active:hover #cancel-btn{
+
+	display: block;
+}
+
+.wrapper .file-name{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	color:#fff;
+	padding: 8px;
+	font-size:20px;
+	display:none;
+	background: #9658fe;
+}
+.wrapper.active:hover .file-name{
+
+	display: block;
+}
+.container .custom-btn{
+	margin-top: 30px;
+	width: 100%;
+	height: 50px;
+	display:block;
+	border: none;
+	border-radius: 25px;
+	color:#fff;
+	font-size: 18px;
+	font-weight: 500;
+	letter-spacing:1px;
+	text-transform: uppercase;
+	cursor: pointer;
+	background:#9658fe;
+
+}

@@ -1,0 +1,27 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+    <div class = "container">
+        <div class="wrapper">
+        <div class="row">
+            <div class="col">
+              {% if filename %}
+                <!---<img src="{{url_for('download_image',filename = filename)}}">--->
+                <a href="{{url_for('download_image',filename = filename)}}" download >
+                {% endif %}
+                <button type="button" class="btn btn-indigo btn-lg" style="float:right;"> download</button>
+                </a>
+
+        </div>
+            <div class="col">
+                <form action="/" method="post"><button class="button"><i class="fas fa-handshake"></i> Home</button> </form>
+            </div>
+    </div>
+    </div>
+    </div>
+</html>

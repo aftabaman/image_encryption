@@ -1,0 +1,97 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title> Image downloader</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<link rel="stylesheet" href="{{url_for('static', filename='CSS/style.css')}}">
+
+</head>
+
+<body>
+
+
+		<nav>
+
+			<ul class="nav_links">
+				<li><p class="logo">Encryptor</p></li>
+
+				<li><a class="btn" href="/alt"><button> Decrypt</button> </a></li>
+			</ul>
+		</nav>
+
+
+
+
+	<div class = "container">
+		<div class="wrapper">
+			<div class="image">
+				<img  src=" " alt="">
+
+
+			</div>
+			<div class="content">
+				<div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+				<div class="text"> No file chosen!!</div>
+			</div>
+			<div id ="cancel-btn"><i class = "fas fa-times"></i></div>
+			<div class="file-name">file name here</i></div>
+		</div>
+			<button onclick="defaultButton()" class="custom-btn"> select Image </button>
+			<form action="/encrypt-image" method="POST" enctype="multipart/form-data">
+
+                <input type="file"  name ="image" id="image" hidden>
+
+				<button type="submit" class="custom-btn"> encrypt Image </button>
+            </form>
+
+
+
+	</div>
+
+
+	<script>
+		const wrapper = document.querySelector(".wrapper");
+		const defaultBtn = document.querySelector("#image");
+		const customBtn =  document.querySelector("custom-btn");
+		const img = document.querySelector("img");
+		const cancelBtn = document.querySelector("#cancel-btn");
+		const fileName = document.querySelector(".file-name")
+		let regExp = /[0-9a-zA-Z\^\&|`|@\[\]\{\}\,\$\=\!\$\(\)\.\%\+\~\_]+$/;
+		function defaultButton(){
+			defaultBtn.click();
+		}
+
+		defaultBtn.addEventListener("change", function(){
+			const file = this.files[0];
+			if(file){
+			const reader = new FileReader();
+				reader.onload = function(){
+					const result = reader.result;
+					img.src = result;
+					wrapper.classList.add("active");
+				}
+				cancelBtn.addEventListener("click",function(){
+					img.src=" ";
+					wrapper.classList.remove("active");
+
+				});
+
+				reader.readAsDataURL(file);
+			}
+			if(this.value){
+
+				let valueStore = this.value.match(regExp);
+				fileName.textContent = valueStore;
+
+			}
+
+		});
+
+	</script>
+
+
+</body>
+</html>

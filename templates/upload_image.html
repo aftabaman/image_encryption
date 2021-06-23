@@ -1,0 +1,53 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+<body>
+    <div class = "container">
+        <div class="row">
+            <div class="col">
+                <h1> upload Image</h1>
+                <p>
+                    {% with errors = get_flashed_messages() %}
+                    {% if errors %}
+                    <div class="alert-message block-message error">
+                      <a class="close" href="#">something </a>
+                      <ul>
+                        {%- for msg in errors %}
+                        <li>{{ msg }}</li>
+                        {% endfor -%}
+                      </ul>
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                </p>
+
+                <form action="/encrypt-image" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label> select Image</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name ="image" id="image1">
+                            <label class = "custom-file-label" for="image1"> select image...</label>
+                        </div>
+                    </div>
+                    <button type = "submit" class="btn btn-primary"> Encrypt Image </button>
+                </form>
+
+            </div>
+            <div class ="col">
+                 <form action="/decrypt-image" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label> select Image</label>
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" name ="image" id="image2">
+                            <label class = "custom-file-label" for="image2"> select image...</label>
+                        </div>
+                    </div>
+                    <button type = "submit" class="btn btn-primary"> Decrypt Image </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
